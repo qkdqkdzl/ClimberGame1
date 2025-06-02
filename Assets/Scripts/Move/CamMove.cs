@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CamMove : MonoBehaviour
@@ -12,7 +10,7 @@ public class CamMove : MonoBehaviour
         
         if (playerTransform != null)
         {
-            Vector3 targetPosition = playerTransform.position; 
+            Vector3 targetPosition = playerTransform.position;  
 
             
             transform.position = Vector3.Lerp(transform.position, targetPosition, smoothing);
