@@ -7,6 +7,7 @@ public class PlayerBtn : MonoBehaviour
 {
     public void OnUpButton()
     {
+        Debug.Log(123);
         transform.position += new Vector3(-1.29f, 0.66f, 0f);
     }
 
