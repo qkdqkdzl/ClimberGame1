@@ -1,6 +1,4 @@
-        using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,22 +10,23 @@ public class TimerManager : MonoBehaviour
     private float currentTime;
     private float timeSpeed = 1f;
     private Coroutine timerCoroutine;
+    private bool isRunning = false;
 
     void Start()
     {
-        StartTimer();
+        ResetAndStartTimer();
     }
 
     public void OnUpButtonPress()
     {
         IncreaseSpeed();
-        StartTimer();
+        ResetAndStartTimer();
     }
 
     public void OnTrunButtonPress()
     {
         IncreaseSpeed();
-        StartTimer();
+        ResetAndStartTimer();
     }
 
     void IncreaseSpeed()
@@ -37,10 +36,13 @@ public class TimerManager : MonoBehaviour
             timeSpeed = 4f;
     }
 
-    void StartTimer()
+    void ResetAndStartTimer()
     {
         if (timerCoroutine != null)
+        {
             StopCoroutine(timerCoroutine);
+            isRunning = false;
+        }
 
         currentTime = baseTime;
         timerCoroutine = StartCoroutine(TimerRoutine());
@@ -48,15 +50,16 @@ public class TimerManager : MonoBehaviour
 
     IEnumerator TimerRoutine()
     {
-        while (currentTime > 0)
+        isRunning = true;
+
+        while (currentTime > 0f)
         {
             currentTime -= Time.deltaTime * timeSpeed;
             timerBarImage.fillAmount = Mathf.Clamp01(currentTime / baseTime);
-            yield return null;  
+            yield return null;
         }
 
         timerBarImage.fillAmount = 0f;
+        isRunning = false;
     }
-
-    
 }

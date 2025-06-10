@@ -211,6 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acbaebc8c1028864e848351d1c4e81f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerBarImage: {fileID: 144975247}
+  baseTime: 10
 --- !u!1 &465237935
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +319,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
 --- !u!114 &465237938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,8 +545,6 @@ GameObject:
   - component: {fileID: 618178370}
   - component: {fileID: 618178372}
   - component: {fileID: 618178373}
-  - component: {fileID: 618178375}
-  - component: {fileID: 618178374}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -638,73 +638,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 618178369}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5558c816fb3c2184d8da1d412dd1ccd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!70 &618178374
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 618178369}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
+  gravity: -9.8
+  rayDistance: 0.2
+  blockLayer:
     serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.4}
-  m_Size: {x: 1, y: 2.8}
-  m_Direction: 0
---- !u!50 &618178375
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 618178369}
-  m_BodyType: 0
-  m_Simulated: 0
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+    m_Bits: 64
 --- !u!1 &877476882
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,7 +659,7 @@ GameObject:
   - component: {fileID: 877476884}
   - component: {fileID: 877476883}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1163,7 +1106,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
 --- !u!114 &1679911224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1426,11 +1369,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c5c6eba5125fc446b18dbdd6fc6b6ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockPrefab: {fileID: 84834717501214797, guid: 84942f4dbc605b84799c98e0f0324373, type: 3}
-  spawnblock: 50
-  leftOffset: {x: 1.29, y: 0.66}
-  rightOffset: {x: 1.23, y: 0.67}
+  block: {fileID: 84834717501214797, guid: 84942f4dbc605b84799c98e0f0324373, type: 3}
+  _firstbock: 50
+  _againblock: 50
+  left: {x: -1.29, y: 0.66}
+  right: {x: 1.23, y: 0.67}
   playerTransform: {fileID: 618178371}
+  _upButton: {fileID: 465237937}
+  _turnButton: {fileID: 1679911223}
+  _SpawnBlock: 25
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
