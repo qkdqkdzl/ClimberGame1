@@ -1,16 +1,17 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TimerManager : MonoBehaviour
-{
+    {
     public Image timerBarImage;
     public float baseTime = 10f;
 
     private float currentTime;
     private float timeSpeed = 1f;
     private Coroutine timerCoroutine;
-    private bool isRunning = false;
+    private bool isRunning = false;                         
 
     void Start()
     {
@@ -42,7 +43,7 @@ public class TimerManager : MonoBehaviour
         {
             StopCoroutine(timerCoroutine);
             isRunning = false;
-        }
+        }           
 
         currentTime = baseTime;
         timerCoroutine = StartCoroutine(TimerRoutine());

@@ -10,8 +10,7 @@ public class PlayerBtn : MonoBehaviour
     /// 버튼 누르면 이동시킬 좌표 값
     /// </summary>
     public void OnUpButton()
-    {
-        Debug.Log(123);
+    {   
         transform.position += new Vector3(-1.29f, 0.66f, 0f);
     }
 
