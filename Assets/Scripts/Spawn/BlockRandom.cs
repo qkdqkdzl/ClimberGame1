@@ -16,8 +16,8 @@ public class BlockRandom : MonoBehaviour
     public int _againblock; // 한 번에 추가 생성할 계단 수
 
     [Header("---------- 좌, 우값 -------")]
-    public Vector2 left;   // 
-    public Vector2 right;  // 
+    public Vector2 left;    
+    public Vector2 right;        
 
     [Header("--------- 플레이어 -------")]
     public Transform playerTransform; // (현재 예시에서는 직접 사용되지 않음)
@@ -90,19 +90,16 @@ public class BlockRandom : MonoBehaviour
         _totalPresses++;
         Debug.Log($"버튼이 눌렸습니다! 총 누른 횟수: {_totalPresses}회");
 
-        // 총 버튼 누름 횟수가 25의 배수일 때마다 추가 계단 생성
+        // 총 버튼 누름 횟수가 _SpawnBlock의 배수일 때마다 _againblock 만큼 추가 계단 생성
         if (_totalPresses % _SpawnBlock == 0 && _totalPresses != 0)
         {
-            Debug.Log($"{_SpawnBlock}회 버튼 누름 돌파! 추가 계단 {_numberspawn}개 생성!");
-            for (int i = 0; i < _numberspawn; i++)
+            Debug.Log($"버튼 {_SpawnBlock}회 누름 돌파! 계단 {_againblock}개 추가 생성!");
+            // 이 for 루프가 새로 추가된 핵심 부분입니다.
+            for (int i = 0; i < _againblock; i++)
             {
-                SpawnNextStair();
+                SpawnNextStair(); // _againblock 횟수만큼 SpawnNextStair()를 호출합니다.
             }
-        }
-    }
-
-
-        
+        }   
+    }        
 }
-
             
