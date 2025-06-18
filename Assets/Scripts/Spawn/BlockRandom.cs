@@ -27,6 +27,11 @@ public class BlockRandom : MonoBehaviour
     public Button _turnButton; // Trun 버튼 UI 버튼 연결
     public int _SpawnBlock; // 계단 추가 생성을 트리거할 버튼 누름 횟수
 
+    [Header("--------- 코인 설정 ---------")]
+    [SerializeField] private GameObject coinPrefab;
+    [SerializeField] private Transform coinParent;
+    [SerializeField] public float coinSpawnChance;
+                
     private Vector2 lastPos; // 마지막 생성 위치
     private int _numberspawn = 0; // 현재까지 생성된 계단 수 (초기 생성 포함)
     private int _totalPresses = 0; // UpBtn 또는 Trun 버튼이 눌린 총 횟수
@@ -78,8 +83,45 @@ public class BlockRandom : MonoBehaviour
         Vector3 spawnPosWithZ = new Vector3(spawnPos.x, spawnPos.y, -1f);
         Instantiate(block, spawnPosWithZ, Quaternion.identity);
 
+        //void MakeCat()
+        //{
+        //    Instantiate(normalCat);
+
+        //    if (level == 1)
+        //    {
+        //        // lv.1 20% 확률로 고양이를 더 생성해준다.
+        //        int p = Random.Range(0, 10); // 0 ~ 9
+        //        if (p < 2) Instantiate(normalCat); // 10개중에 2개만 선택됨 => 20% 확률 표현
+        //    }
+        //    else if (level == 2)
+        //    {
+        //        // lv.2 50% 확률로 고양이를 더 생성해준다.
+        //        int p = Random.Range(0, 10); // 0 ~ 9
+        //        if (p < 5) Instantiate(normalCat); // 10개중에 5개만 선택됨 => 50% 확률 표현
+        //    }
+        //    else if (level == 3)
+        //    {
+        //        // lv.3 뚱뚱한 고양이를 생성해준다.
+        //        Instantiate(fatCat);
+        //    }
+        //}
+    
+
+
+
+        // 일정 확률로
+        float randomValue = Random.value;
+        if(randomValue < 0.1f)
+        {
+            // 블록을 스폰한 위치보다 조금 더 위에
+            // coin, apple 프리팹을 Instantiate로 복제 생성 
+
+
+            
+        }
+
         lastPos = spawnPos;
-        _numberspawn++; // 계단 생성 시 카운트 증가
+        _numberspawn++; // 계단 생성 시 카운트 증가              
     }
 
     /// <summary>
