@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class TimerManager : MonoBehaviour
 {
+    
+
     public Image timerBarImage;
     public float baseTime = 10f;
 
@@ -62,7 +64,7 @@ public class TimerManager : MonoBehaviour
 
         timerBarImage.fillAmount = 0f;
         isRunning = false;
+
+                         
     }
-
-
 }

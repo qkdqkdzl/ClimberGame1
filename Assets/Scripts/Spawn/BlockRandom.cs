@@ -8,9 +8,10 @@ using UnityEngine.UI;
 
 public class BlockRandom : MonoBehaviour
 {
+        
     [Header("--------- 블록 설정 ---------")]
     public GameObject block; // 계단 프리팹
-
+  
     [Header("--------- 계단 개수 --------")]
     public int _firstbock; // 처음 생성할 블록 개수
     public int _againblock; // 한 번에 추가 생성할 계단 수
@@ -27,11 +28,13 @@ public class BlockRandom : MonoBehaviour
     public Button _turnButton; // Trun 버튼 UI 버튼 연결
     public int _SpawnBlock; // 계단 추가 생성을 트리거할 버튼 누름 횟수
 
-    [Header("--------- 코인 설정 ---------")]
+    [Header("--------- 코인 ---------")]
     [SerializeField] private GameObject coinPrefab;
-    [SerializeField] private Transform coinParent;
-    [SerializeField] public float coinSpawnChance;
-                
+    [SerializeField] private GameObject applePrefab;
+    
+
+
+
     private Vector2 lastPos; // 마지막 생성 위치
     private int _numberspawn = 0; // 현재까지 생성된 계단 수 (초기 생성 포함)
     private int _totalPresses = 0; // UpBtn 또는 Trun 버튼이 눌린 총 횟수
@@ -83,46 +86,31 @@ public class BlockRandom : MonoBehaviour
         Vector3 spawnPosWithZ = new Vector3(spawnPos.x, spawnPos.y, -1f);
         Instantiate(block, spawnPosWithZ, Quaternion.identity);
 
-        //void MakeCat()
-        //{
-        //    Instantiate(normalCat);
-
-        //    if (level == 1)
-        //    {
-        //        // lv.1 20% 확률로 고양이를 더 생성해준다.
-        //        int p = Random.Range(0, 10); // 0 ~ 9
-        //        if (p < 2) Instantiate(normalCat); // 10개중에 2개만 선택됨 => 20% 확률 표현
-        //    }
-        //    else if (level == 2)
-        //    {
-        //        // lv.2 50% 확률로 고양이를 더 생성해준다.
-        //        int p = Random.Range(0, 10); // 0 ~ 9
-        //        if (p < 5) Instantiate(normalCat); // 10개중에 5개만 선택됨 => 50% 확률 표현
-        //    }
-        //    else if (level == 3)
-        //    {
-        //        // lv.3 뚱뚱한 고양이를 생성해준다.
-        //        Instantiate(fatCat);
-        //    }
-        //}
-    
-
-
+        lastPos = spawnPos;
+        _numberspawn++; // 계단 생성 시 카운트 증가    
 
         // 일정 확률로
         float randomValue = Random.value;
         if(randomValue < 0.1f)
         {
             // 블록을 스폰한 위치보다 조금 더 위에
-            // coin, apple 프리팹을 Instantiate로 복제 생성 
+            // coin, apple 프리팹을 Instantiate로 복제 생성          
 
+            Vector3 itemSpawnPos = spawnPos + new Vector2(0f, 0.6f);
 
-            
-        }
+                        
+            float itemPick = Random.value;
+            GameObject itemToSpawn = itemPick < 0.6f ? coinPrefab : applePrefab;
 
-        lastPos = spawnPos;
-        _numberspawn++; // 계단 생성 시 카운트 증가              
+            GameObject item = Instantiate(      
+                itemToSpawn,
+                new Vector3(itemSpawnPos.x, itemSpawnPos.y, -1f),
+                Quaternion.identity
+            );
+        }      
+        
     }
+                
 
     /// <summary>
     /// UpBtn 또는 Trun 버튼이 눌렸을 때 호출되는 함수
