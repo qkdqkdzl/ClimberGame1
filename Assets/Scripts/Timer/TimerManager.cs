@@ -9,6 +9,7 @@ public class TimerManager : MonoBehaviour
 
     public Image timerBarImage;
     public float baseTime = 10f;
+    public GameObject gameOverUI;  // 게임오버 메시지 UI 오브젝트 (비활성 상태로 시작)
 
     private float currentTime;
     private float timeSpeed = 1f;
@@ -20,6 +21,12 @@ public class TimerManager : MonoBehaviour
         ResetAndStartTimer();
     }
 
+    private void Update()
+    {
+
+        
+
+    }
     public void OnUpButtonPress()
     {
         IncreaseSpeed();

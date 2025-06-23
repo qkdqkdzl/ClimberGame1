@@ -8,8 +8,8 @@ public class Apple : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("»ç°ú ¸ÔÀ½!");
-            Destroy(gameObject); // »ç°ú ¿ÀºêÁ§Æ® Á¦°Å
+            Debug.Log($"{gameObject.name} È¹µæ!");
+            Destroy(gameObject);
         }
-    }       
+    }
 }

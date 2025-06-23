@@ -109,6 +109,7 @@ public class BlockRandom : MonoBehaviour
             );
         }      
         
+
     }
                 
 
@@ -124,12 +125,14 @@ public class BlockRandom : MonoBehaviour
         if (_totalPresses % _SpawnBlock == 0 && _totalPresses != 0)
         {
             Debug.Log($"버튼 {_SpawnBlock}회 누름 돌파! 계단 {_againblock}개 추가 생성!");
-            // 이 for 루프가 새로 추가된 핵심 부분입니다.
+            // 이 for 루프가 새로 추가된 핵심 부분
             for (int i = 0; i < _againblock; i++)
             {
-                SpawnNextStair(); // _againblock 횟수만큼 SpawnNextStair()를 호출합니다.
+                SpawnNextStair(); // _againblock 횟수만큼 SpawnNextStair()를 호출
             }
         }   
-    }        
+    }       
+
+    
 }
             
