@@ -9,7 +9,7 @@ public class CollectibleItem : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log($"{gameObject.name} ∏‘¿Ω!");
-            Destroy(gameObject);
+            Destroy(gameObject);                                
         }
     }
 }

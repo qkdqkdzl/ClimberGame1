@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class TimerManager : MonoBehaviour
 {
-    
-
     public Image timerBarImage;
     public float baseTime = 10f;
     public GameObject gameOverUI;  // 게임오버 메시지 UI 오브젝트 (비활성 상태로 시작)
@@ -19,14 +17,8 @@ public class TimerManager : MonoBehaviour
     void Start()
     {
         ResetAndStartTimer();
-    }
-
-    private void Update()
-    {
-
-        
-
-    }
+    } 
+    
     public void OnUpButtonPress()
     {
         IncreaseSpeed();
@@ -72,6 +64,10 @@ public class TimerManager : MonoBehaviour
         timerBarImage.fillAmount = 0f;
         isRunning = false;
 
-                         
+        // 타이머 끝났을 때 실행
+        timerBarImage.fillAmount = 0f;
+        isRunning = false;
+
+        gameOverUI.SetActive(true);
     }
 }
