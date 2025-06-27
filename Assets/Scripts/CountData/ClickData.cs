@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 클릭 수 저장용 스크립트 
@@ -18,6 +19,7 @@ public class ClickData : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject); // 씬 이동해도 유지
+            //SceneManager.LoadScene("Menu");
         }
         else
         {
@@ -33,7 +35,5 @@ public class ClickData : MonoBehaviour
 
   
 
-    /// <summary>
-    /// 로비 UI에 표시하는 스크립트        
-    /// </summary>
+
     

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 
-public class FallAnimation : MonoBehaviour
+public class FallAnim    : MonoBehaviour
 {
     public float gravity = -9.8f;        // 중력 가속도
     private float verticalSpeed = 0f;

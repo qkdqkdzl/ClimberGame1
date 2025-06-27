@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TimerManager : MonoBehaviour
 {
+    public Animator fallAnimator;   
     public Image timerBarImage;
     public float baseTime = 10f;
     public GameObject gameOverUI;  // 게임오버 메시지 UI 오브젝트 (비활성 상태로 시작)
@@ -13,6 +14,7 @@ public class TimerManager : MonoBehaviour
     private float timeSpeed = 1f;
     private Coroutine timerCoroutine;
     private bool isRunning = false;
+    
 
     void Start()
     {
@@ -47,10 +49,11 @@ public class TimerManager : MonoBehaviour
         }
 
         currentTime = baseTime;
-        timerCoroutine = StartCoroutine(TimerRoutine());
+        timerCoroutine = StartCoroutine(TimerRoutine());    
+        
     }
 
-    IEnumerator TimerRoutine()
+    IEnumerator TimerRoutine() 
     {
         isRunning = true;
 
@@ -67,6 +70,8 @@ public class TimerManager : MonoBehaviour
         // 타이머 끝났을 때 실행
         timerBarImage.fillAmount = 0f;
         isRunning = false;
+
+        fallAnimator.SetTrigger("falling");
 
         gameOverUI.SetActive(true);
     }
