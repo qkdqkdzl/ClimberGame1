@@ -11,6 +11,6 @@ public class Count : MonoBehaviour
         //SceneManager.LoadScene(""); ¾À ÀüÈ¯
 
         totalPressCount++;
-        countText.text = $"´©¸¥ È½¼ö: {totalPressCount}";
+        countText.text = $"{totalPressCount}";
     }       
 }

@@ -53,6 +53,7 @@ public class TimerManager : MonoBehaviour
         
     }
 
+
     IEnumerator TimerRoutine() 
     {
         isRunning = true;
@@ -75,4 +76,8 @@ public class TimerManager : MonoBehaviour
 
         gameOverUI.SetActive(true);
     }
+    public void OnFallAnimationEnd()
+    {
+        Destroy(gameObject); // 이 스크립트가 붙은 캐릭터 오브젝트를 삭제
+    }       
 }

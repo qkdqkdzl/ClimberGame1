@@ -17,9 +17,8 @@ public class PlayerBtn : MonoBehaviour
         
     public void OnTrunButton()
     {
-        transform.position += new Vector3(1.264f, 0.599f, 0f); 
-         
-        
-    }    
+        transform.position += new Vector3(1.264f, 0.599f, 0f);              
+    }
+    
 }
 

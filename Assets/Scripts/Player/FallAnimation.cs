@@ -1,16 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
+using System;
 using UnityEngine;
 
 public class FallAnim    : MonoBehaviour
 {
+    private Animator animator; 
+    private bool hasPlayedFallAnim = false;             
     public float gravity = -9.8f;        // 중력 가속도
+    public float rayDistance = 10f;     // 바닥 체크 거리
+    public LayerMask blockLayer;         //  여기서 Block 레이어만 포함
+
     private float verticalSpeed = 0f;
     private bool isFalling = false;
 
-    public float rayDistance = 10f;     // 바닥 체크 거리
-    public LayerMask blockLayer;         //  여기서 Block 레이어만 포함
+    void Start()
+    {
+        animator = GetComponent<Animator>();    
+    }
 
     void Update()
     {
@@ -21,7 +26,15 @@ public class FallAnim    : MonoBehaviour
             {
                 isFalling = true;
                 verticalSpeed = 0f;
+
+                if (!hasPlayedFallAnim) // 추가됨
+                {
+                    animator.SetTrigger("StartFalling"); // 추가됨
+                    hasPlayedFallAnim = true; // 추가됨
+                }
             }
+            
+
         }
         else
         {
@@ -51,5 +64,9 @@ public class FallAnim    : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + Vector3.down * rayDistance);
     }
 
+    public void OnFallAnimationEnd() // 추가됨
+    {
+        Destroy(gameObject); // 추가됨
+    }
 }
 
