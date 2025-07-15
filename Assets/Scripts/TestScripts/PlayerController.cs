@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
             // 게임 시간을 멈춰서 게임을 정지시킵니다.
             Time.timeScale = 0;
-            // 커밋확인
+            // 커밋확인         
         }
     }
 }
