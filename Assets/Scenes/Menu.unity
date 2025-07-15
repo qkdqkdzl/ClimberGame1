@@ -182,8 +182,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 10417a10887c0ec4ba5514a2909a2bde, type: 2}
+  m_sharedMaterial: {fileID: -1632981867495104991, guid: 10417a10887c0ec4ba5514a2909a2bde, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 17106719}
   - component: {fileID: 17106718}
   m_Layer: 5
-  m_Name: Coin
+  m_Name: Apple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -484,6 +484,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299255624}
   m_CullTransparentMesh: 1
+--- !u!1 &300414934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 300414936}
+  - component: {fileID: 300414935}
+  m_Layer: 0
+  m_Name: UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &300414935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300414934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b69f99f8ee0ee24ab689a2e8601be16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinCountText: {fileID: 1785607865}
+  appleCountText: {fileID: 14294461}
+--- !u!4 &300414936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300414934}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 836, y: 1449.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &341090587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,7 +1488,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 999
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 10417a10887c0ec4ba5514a2909a2bde, type: 2}
   m_sharedMaterial: {fileID: -1632981867495104991, guid: 10417a10887c0ec4ba5514a2909a2bde, type: 2}
@@ -1728,8 +1774,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 10417a10887c0ec4ba5514a2909a2bde, type: 2}
+  m_sharedMaterial: {fileID: -1632981867495104991, guid: 10417a10887c0ec4ba5514a2909a2bde, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2057,6 +2103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11594e5197198044eb4d523a178782ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinCountText: {fileID: 1785607865}
+  appleCountText: {fileID: 14294461}
 --- !u!4 &2000992151
 Transform:
   m_ObjectHideFlags: 0
@@ -2082,3 +2130,4 @@ SceneRoots:
   - {fileID: 733655870}
   - {fileID: 2000992151}
   - {fileID: 1224914426}
+  - {fileID: 300414936}
