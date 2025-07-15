@@ -49,7 +49,7 @@ public class BlockRandom : MonoBehaviour
     void Start()
     {
         // 시작 위치 고정
-        lastPos = new Vector2(0.58f, -5.96f);
+        lastPos = new Vector3(0.58f, -5.96f, 0);
 
         // 첫 계단 생성 (기본 위치에, z = -1f)
         Vector3 firstPosWithZ = new Vector3(lastPos.x, lastPos.y, -1f);

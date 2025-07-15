@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6545662384700768743}
   - component: {fileID: 4709463960200480091}
   - component: {fileID: -6543341736837551266}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Block
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 84834717501214797}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
