@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TimerManager : MonoBehaviour
 {
-    public Animator fallAnimator;   
+    //public Animator fallAnimator;   
     public Image timerBarImage;
     public float baseTime = 10f;
     public GameObject gameOverUI;  // 게임오버 메시지 UI 오브젝트 (비활성 상태로 시작)
@@ -72,7 +72,7 @@ public class TimerManager : MonoBehaviour
         timerBarImage.fillAmount = 0f;
         isRunning = false;
 
-        fallAnimator.SetTrigger("falling");
+        //fallAnimator.SetTrigger("falling");
 
         gameOverUI.SetActive(true);
     }
