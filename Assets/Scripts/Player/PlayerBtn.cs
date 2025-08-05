@@ -22,32 +22,43 @@ public class PlayerBtn : MonoBehaviour
     // Up 버튼
     public void OnUpButton()
     {
-        if (!trunPressed)
+        if (spriteRenderer != null)
         {
-            // Trun 버튼 한 번도 안 눌렸으면 오른쪽 위 이동
-            transform.position += new Vector3(1.264f, 0.599f, 0f);
+            if (spriteRenderer.flipX)
+            {
+                // 왼쪽을 바라보는 중이면 → 왼쪽 위로 이동
+                transform.position += new Vector3(-1.264f, 0.599f, 0f);
+            }
+            else
+            {
+                // 오른쪽을 바라보는 중이면 → 오른쪽 위로 이동
+                transform.position += new Vector3(1.264f, 0.599f, 0f);
+            }
         }
-        else
-        {
-            // Trun 버튼 눌렸으면 왼쪽 위 이동
-            transform.position += new Vector3(-1.286f, 0.599f, 0f);
-        }
-        // Up 버튼은 flipX 조작 안 함
     }
 
     // Trun 버튼
     public void OnTrunButton()
     {
-        // 오른쪽 위로 이동
-        transform.position += new Vector3(1.264f, 0.599f, 0f);
-
-        // 좌우 반전 토글
         if (spriteRenderer != null)
         {
-            spriteRenderer.flipX = !spriteRenderer.flipX;
-        }
+            // 좌우 반전하기 전에 현재 방향을 체크
+            bool isFacingRight = !spriteRenderer.flipX;
 
-        // Trun 버튼 누름 상태 저장 (true로 설정)
-        trunPressed = true;
+            // 좌우 반전 토글
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+
+            // 방향에 따라 왼쪽 위 또는 오른쪽 위로 이동
+            if (isFacingRight)
+            {
+                // 오른쪽 보고 있었으면 왼쪽 위로 이동
+                transform.position += new Vector3(-1.286f, 0.599f, 0f);
+            }
+            else
+            {
+                // 왼쪽 보고 있었으면 오른쪽 위로 이동
+                transform.position += new Vector3(1.264f, 0.599f, 0f);
+            }
+        }
     }
 }
